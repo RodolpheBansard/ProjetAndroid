@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">ProjetAndroid</string>
+    <string name="app_name">SNOWTAM</string>
+    <string name="edit_destination1">Destination 1</string>
+    <string name="edit_destination2">Destination 2</string>
+    <string name="edit_destination3">Destination 3</string>
+    <string name="edit_destination4">destination 4</string>
+    <string name="barre_de_recherche">Search</string>
 </resources>
