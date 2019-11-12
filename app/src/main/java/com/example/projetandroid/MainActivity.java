@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.SearchView;
 
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
@@ -18,8 +17,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void sendMessage(View view) {
         Intent intent = new Intent(this, AffichageActivity.class);
-        EditText editText = (EditText) findViewById(R.id.editText2);
-        String message = editText.getText().toString();
+        EditText editText1 = (EditText) findViewById(R.id.editText1);
+        EditText editText2 = (EditText) findViewById(R.id.editText2);
+        EditText editText3 = (EditText) findViewById(R.id.editText3);
+        EditText editText4 = (EditText) findViewById(R.id.editText4);
+        String message = editText1.getText().toString() + " " + editText2.getText().toString() + " " + editText3.getText().toString() + " " + editText4.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
