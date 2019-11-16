@@ -8,8 +8,13 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 public class FragmentCollectionAdapter extends FragmentPagerAdapter {
 
-    public FragmentCollectionAdapter(FragmentManager fm) {
+     private int nPages;
+     private Snowtam snowtam;
+
+    public FragmentCollectionAdapter(FragmentManager fm, Snowtam snowtam) {
         super(fm);
+        this.snowtam = snowtam;
+        this.nPages = 4;
     }
 
     @Override
@@ -17,7 +22,7 @@ public class FragmentCollectionAdapter extends FragmentPagerAdapter {
         SnowtamFragment snowtamFragment = new SnowtamFragment();
         Bundle bundle = new Bundle();
         position = position + 1;
-        bundle.putString("message","Hello From Page : " + position);
+        bundle.putString("message","Snowtam : " + position + "\n\n" + snowtam.toString());
         snowtamFragment.setArguments(bundle);
 
         return snowtamFragment;
@@ -25,6 +30,6 @@ public class FragmentCollectionAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 4;
+        return nPages;
     }
 }
