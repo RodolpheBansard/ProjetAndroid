@@ -1,6 +1,7 @@
 package com.example.projetandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,13 +14,19 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class AffichageActivity extends AppCompatActivity {
+    private ViewPager viewPager;
+    private FragmentCollectionAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_affichage);
 
-        Intent intent = getIntent();
+        viewPager = findViewById(R.id.pager);
+        adapter = new FragmentCollectionAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(adapter);
+
+        /*Intent intent = getIntent();
         //String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
         String message = "SWEN0311 ENSB 10130958\n" +
                 "(SNOWTAM 0311\n" +
@@ -41,7 +48,7 @@ public class AffichageActivity extends AppCompatActivity {
 
         // Capture the layout's TextView and set the string as its text
         TextView textView = findViewById(R.id.textView);
-        textView.setText(snowtam.toString());
+        textView.setText(snowtam.toString());*/
 
 
     }
