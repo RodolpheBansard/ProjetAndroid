@@ -34,14 +34,14 @@ public class AffichageActivity extends AppCompatActivity {
                 "N) ALL REPORTED TWYS/2\n" +
                 "R) ALL REPORTED APRONS/2\n" +
                 "T) CONTAMINATION/100/100/100/PERCENT.\n" +
-                ")","SWEN0466 ENVA 10130330\n" +
+                ")" , "SWEN0466 ENVA 10130330\n" +
                 "(SNOWTAM 0466\n" +
                 "A) ENVA\n" +
                 "B) 10130330 C) 09\n" +
                 "F) NIL/NIL/NIL H) 5/5/5\n" +
                 "N) A1 A2 A3 A4 A5 A6 A8 B1 B2 G C G W Y/NIL\n" +
                 "R) APRON EAST APRON NORTH APRON WEST M1 M2 M3/NIL\n" +
-                ")\n" , "SWEN0218 ENBO 10121227\n" +
+                ")" , "SWEN0218 ENBO 10121227\n" +
                 "(SNOWTAM 0218\n" +
                 "A) ENBO\n" +
                 "B) 10121227 C) 07\n" +

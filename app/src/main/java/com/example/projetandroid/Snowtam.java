@@ -26,10 +26,12 @@ import java.io.InputStreamReader;
 public class Snowtam {
     private String snowtam;
     private static InputStream file;
+    private static BufferedReader bufferedReader;
 
     public Snowtam(String snowtam, InputStream file) {
         this.snowtam = snowtam;
         this.file = file;
+        this.bufferedReader = new BufferedReader(new InputStreamReader(file));
     }
 
 
@@ -108,6 +110,7 @@ public class Snowtam {
             it.remove();
         }
         return decryptedSnowtam;
+
     }
 
     private static Map<Character,String> getSnowtamDictionnary(String snowtam){
@@ -133,7 +136,7 @@ public class Snowtam {
     }
 
     private static String getAirportName(String data) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(file));
+
 
         String line;
         while ((line = bufferedReader.readLine()) != null) {
@@ -141,6 +144,7 @@ public class Snowtam {
             for(String element : liste){
                 if(element.length() == 6){
                     if(element.equals("\"" + data + "\"")){
+                        file.reset();
                         return liste[1].replace("\"","");
                     }
                 }
