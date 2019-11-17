@@ -58,16 +58,15 @@ public class AffichageActivity extends AppCompatActivity {
                 "MEASURED FRICTION COEFFICIENT 71/69/74 TAP\n" +
                 ")"};
 
-        Snowtam[] snowtams = new Snowtam[4];
-        for(int i = 0; i ){
+        Snowtam[] snowtams = new Snowtam[snowtamData.length];
+        for(int i = 0; i <snowtamData.length; i++){
+            try {
+                snowtams[i] = new Snowtam(snowtamData[i], getAssets().open("airport"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
-        }
-        Snowtam snowtam = null;
-        try {
-            snowtam = new Snowtam(snowtam, getAssets().open("airport"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
 
         // Capture the layout's TextView and set the string as its text
@@ -75,7 +74,7 @@ public class AffichageActivity extends AppCompatActivity {
         //textView.setText(snowtam.toString());
 
         viewPager = findViewById(R.id.pager);
-        adapter = new FragmentCollectionAdapter(getSupportFragmentManager(),snowtam);
+        adapter = new FragmentCollectionAdapter(getSupportFragmentManager(),snowtams);
         viewPager.setAdapter(adapter);
 
 

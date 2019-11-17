@@ -24,7 +24,6 @@ import java.io.InputStreamReader;
 
 
 public class Snowtam {
-    private static final String path = "D:\\Repos\\5A\\Android\\ProjetAndroid\\app\\src\\main\\res\\raw\\airport";
     private String snowtam;
     private static InputStream file;
 
@@ -45,7 +44,7 @@ public class Snowtam {
     }
 
 
-    public static String getDecryptedSnowtam(Map<Character,String> snowtamDictionnary) throws IOException {
+    private static String getDecryptedSnowtam(Map<Character,String> snowtamDictionnary) throws IOException {
         String decryptedSnowtam = "";
 
         Iterator it = snowtamDictionnary.entrySet().iterator();
@@ -111,7 +110,7 @@ public class Snowtam {
         return decryptedSnowtam;
     }
 
-    public static Map<Character,String> getSnowtamDictionnary(String snowtam){
+    private static Map<Character,String> getSnowtamDictionnary(String snowtam){
         // Expressions régulières pour le parse de la snowtam
         String delimiterLetter = "\\)";
         String delimiterContent = ".\\)";
@@ -133,7 +132,7 @@ public class Snowtam {
         return dictionnary;
     }
 
-    public static String getAirportName(String data) throws IOException {
+    private static String getAirportName(String data) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(file));
 
         String line;
@@ -150,7 +149,7 @@ public class Snowtam {
         return "can't find airport";
     }
 
-    public static String getDateHour(String data){
+    private static String getDateHour(String data){
         String[] months = {"January","February","March","April","May","June","July","August","September","October","November","December"};
         String day = data.substring(2,4);
         String month = "";
@@ -162,15 +161,15 @@ public class Snowtam {
         return day + " " + month + " " + heure;
     }
 
-    public static String getRunwayDesignator(String data){
+    private static String getRunwayDesignator(String data){
         return "RUNWAY " + data;
     }
 
-    public static String getClearedRunwayLength(String data){
+    private static String getClearedRunwayLength(String data){
         return "CLEARED RUNWAY LENGTH " + data + "M";
     }
 
-    public static String getClearedRunwayWidth(String data){
+    private static String getClearedRunwayWidth(String data){
         String width;
 
         if(data.length() == 1)
@@ -188,14 +187,19 @@ public class Snowtam {
     }
 
     public static String getDepositsOverTotalRunwayLength(String data){
-        String[] weathers = {"CLEAR AND DRY","DAMP","WATER PATCHES","RIME OR FROST COVERED","DRY SNOW","WET SNOW","SLUSH","ICE","COMPACTED OR ROLLED SNOW","FROZEN RUTS OR RIDGES"};
+        String[] weathers = {"CLEAR AND DRY","DAMP","WATER PATCHES","RIME OR FROST COVERED","DRY SNOW","WET SNOW","SLUSH","ICE","COMPACTED OR ROLLED SNOW","FROZEN RUTS OR RIDGES","NON-EXISTENT"};
         String[] tab = data.split("/");
+
+        for(int i = 0; i<3; i++){
+            if(tab[i].equals("NIL")){
+                tab[i] = "10";
+            }        }
         int[] indexes = {Integer.parseInt(tab[0]),Integer.parseInt(tab[1]),Integer.parseInt(tab[2])};
 
         return "Threshold: " + weathers[indexes[0]] + " / Mid runway: " + weathers[indexes[1]] + " / Roll out: " + weathers[indexes[2]] ;
     }
 
-    public static String getMeanDepthDeposit(String data){
+    private static String getMeanDepthDeposit(String data){
         String[] tab = data.split("/");
 
         for(int i=0; i<3 ; i++){
@@ -209,7 +213,7 @@ public class Snowtam {
         return "MEAN DEPTH Threshold: " + tab[0] + " / Mid runway: " + tab[1] + " / Roll out: " + tab[2];
     }
 
-    public static String getFrictionMeasurements(String data){
+    private static String getFrictionMeasurements(String data){
         String[] instrumentsAbbreviation = {"BRD","GRT","MUM","RFT","SFH","SFL","SKH","SKL","TAP"};
         String[] instruments = {"Brakemeter-Dynometer","Grip tester","Mu-meter","Runway frition tester","Surface friction tester (high-pressure tire)","Surface friction tester (low-pressure tire)","Skiddometer (high-pressure tire)","Skiddometer (low-pressure tire)","Tapley meter"};
 
@@ -250,7 +254,7 @@ public class Snowtam {
         return "BRAKING ACTION Threshold: " + numbers[0] + " / Mid runway: " + numbers[1] + " / Roll Out: " + numbers[2] + " Instrument: " + instrument;
     }
 
-    public static String getCriticalSnowbanks(String data){
+    private static String getCriticalSnowbanks(String data){
         String[] tab = data.split("/");
         String height = tab[0];
         tab = tab[1].split("");
@@ -274,7 +278,7 @@ public class Snowtam {
 
     }
 
-    public static String getRunwayLight(String data){
+    private static String getRunwayLight(String data){
         data = data.substring(3,data.length());
         String side = "";
         if(data.length() == 1){
@@ -290,7 +294,7 @@ public class Snowtam {
 
     }
 
-    public static String getFurtherClearance(String data){
+    private static String getFurtherClearance(String data){
         if(data.equals("TOTAL"))
             return "FURTHER CLEARANCE TOTAL";
         else{
@@ -299,31 +303,31 @@ public class Snowtam {
         }
     }
 
-    public static String getFurtherClearanceCompletionTime(String data){
+    private static String getFurtherClearanceCompletionTime(String data){
         String hh = data.substring(0,2);
         String mm = data.substring(2,4);
 
         return "Anticipated time of completion " + hh + "h" + mm + " UTC";
     }
 
-    public static String getTaxiway(String data){
+    private static String getTaxiway(String data){
         return data;
     }
 
-    public static String getTaxiwaySnowbanks(String data){
+    private static String getTaxiwaySnowbanks(String data){
         String distance  = data.substring(3,data.length());
         return "SNOW BANKS: YES SPACE " + distance + "m";
     }
 
-    public static String getApron(String data){
+    private static String getApron(String data){
         return data;
     }
 
-    public static String getNextPlannedMeasurementTime(String data){
+    private static String getNextPlannedMeasurementTime(String data){
         return "NEXT OBSERVATION " + getDateHour(data);
     }
 
-    public static String getPlainLanguageRemarks(String data){
+    private static String getPlainLanguageRemarks(String data){
         return data;
     }
 }

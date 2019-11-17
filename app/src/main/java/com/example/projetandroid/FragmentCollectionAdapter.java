@@ -9,12 +9,12 @@ import androidx.fragment.app.FragmentPagerAdapter;
 public class FragmentCollectionAdapter extends FragmentPagerAdapter {
 
      private int nPages;
-     private Snowtam snowtam;
+     private Snowtam[] snowtam;
 
-    public FragmentCollectionAdapter(FragmentManager fm, Snowtam snowtam) {
+    public FragmentCollectionAdapter(FragmentManager fm, Snowtam[] snowtam) {
         super(fm);
         this.snowtam = snowtam;
-        this.nPages = 4;
+        this.nPages = snowtam.length;
     }
 
     @Override
@@ -22,7 +22,7 @@ public class FragmentCollectionAdapter extends FragmentPagerAdapter {
         SnowtamFragment snowtamFragment = new SnowtamFragment();
         Bundle bundle = new Bundle();
         position = position + 1;
-        bundle.putString("message","Snowtam : " + position + "\n\n" + snowtam.toString());
+        bundle.putString("message","Snowtam : " + position + "\n\n" + snowtam[position-1].toString());
         snowtamFragment.setArguments(bundle);
 
         return snowtamFragment;
