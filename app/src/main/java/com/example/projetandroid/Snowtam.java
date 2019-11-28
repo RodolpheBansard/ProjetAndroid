@@ -37,12 +37,13 @@ public class Snowtam {
 
     @Override
     public String toString() {
-        try {
-            return getDecryptedSnowtam(getSnowtamDictionnary(snowtam));
-        } catch (IOException e) {
-            e.printStackTrace();
-            return "IO ERROR";
-        }
+        return this.snowtam;
+//        try {
+//            return getDecryptedSnowtam(getSnowtamDictionnary(snowtam));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            return "IO ERROR";
+//        }
     }
 
 
