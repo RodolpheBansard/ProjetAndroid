@@ -32,4 +32,6 @@ public class FragmentCollectionAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return nPages;
     }
+
+
 }

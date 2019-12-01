@@ -147,7 +147,6 @@ public class MainActivity extends AppCompatActivity {
             startIndex = html.indexOf("SWEN", startIndex + 1);
             endIndex = startIndex;
             while(html.charAt(endIndex) != '<'){
-                Log.println(Log.INFO,"i = ",Integer.toString(endIndex));
                 endIndex++;
             }
             compteur ++;

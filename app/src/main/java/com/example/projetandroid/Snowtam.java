@@ -27,6 +27,8 @@ public class Snowtam {
     private String snowtam;
     private static InputStream file;
     private static BufferedReader bufferedReader;
+    private static String latitude;
+    private static String longitude;
 
     public Snowtam(String snowtam, InputStream file) {
         this.snowtam = snowtam;
@@ -39,13 +41,23 @@ public class Snowtam {
     public String toString() {
 
         try {
-            return getDecryptedSnowtam(getSnowtamDictionnary(snowtam));
+            return getDecryptedSnowtam(getSnowtamDictionnary(snowtam)) + getCoordinates();
         } catch (IOException e) {
             e.printStackTrace();
             return "IO ERROR";
         }
     }
 
+    public String getLatitude() {
+        return latitude;
+    }
+    public String getLongitude() {
+        return longitude;
+    }
+
+    private String getCoordinates(){
+        return latitude+"/"+longitude;
+    }
 
     private static String getDecryptedSnowtam(Map<Character,String> snowtamDictionnary) throws IOException {
         String decryptedSnowtam = "";
@@ -142,17 +154,23 @@ public class Snowtam {
         String line;
         while ((line = bufferedReader.readLine()) != null) {
             String[] liste = line.split(",");
-            for(String element : liste){
-                if(element.length() == 6){
-                    if(element.equals("\"" + data + "\"")){
-                        file.reset();
-                        return liste[1].replace("\"","");
-                    }
-                }
+            if(liste[5].equals("\"" + data + "\"") ) {
+                latitude = liste[6];
+                longitude = liste[7];
+                file.reset();
+                return liste[1].replace("\"", "");
+            }
+            else if(liste[6].equals("\"" + data + "\"")) {
+                latitude = liste[7];
+                longitude = liste[8];
+                file.reset();
+                return liste[1].replace("\"", "");
             }
         }
         return "can't find airport";
     }
+
+
 
     private static String getDateHour(String data){
         String[] months = {"January","February","March","April","May","June","July","August","September","October","November","December"};

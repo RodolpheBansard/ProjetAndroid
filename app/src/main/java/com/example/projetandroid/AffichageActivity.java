@@ -5,6 +5,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -24,9 +26,12 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AffichageActivity extends AppCompatActivity {
+public class AffichageActivity extends AppCompatActivity{
     private ViewPager viewPager;
     private FragmentCollectionAdapter adapter;
+    public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+    private Snowtam[] snowtams;
+    private String[] coordinates;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,10 +44,12 @@ public class AffichageActivity extends AppCompatActivity {
 
 
         String[] data = message.split("#");
-        Snowtam[] snowtams = new Snowtam[data.length];
+        snowtams = new Snowtam[data.length];
+        coordinates = new String[data.length];
         for (int i=0; i<data.length; i++){
             try {
                 snowtams[i] = new Snowtam(data[i],getAssets().open("airport"));
+                coordinates[i] = snowtams[i].toString().split("\n")[snowtams[i].toString().split("\n").length-1];
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -54,6 +61,23 @@ public class AffichageActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
 
 
+
+
+    }
+
+    public void DisplayMap(View view){
+        int index = viewPager.getCurrentItem();
+        Intent intent = new Intent(this, MapActivity.class);
+        String message = coordinates[index] + "/" + coordinates[index];
+
+
+        Log.println(Log.INFO," COORDINATE1 : ",Integer.toString(index));
+        Log.println(Log.INFO," COORDINATE2 : ",coordinates[0]);
+        Log.println(Log.INFO," COORDINATE3 : ",coordinates[1]);
+
+
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
     }
 
 
