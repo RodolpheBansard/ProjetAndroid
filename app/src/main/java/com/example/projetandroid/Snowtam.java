@@ -37,13 +37,13 @@ public class Snowtam {
 
     @Override
     public String toString() {
-        return this.snowtam;
-//        try {
-//            return getDecryptedSnowtam(getSnowtamDictionnary(snowtam));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            return "IO ERROR";
-//        }
+
+        try {
+            return getDecryptedSnowtam(getSnowtamDictionnary(snowtam));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "IO ERROR";
+        }
     }
 
 
@@ -196,7 +196,7 @@ public class Snowtam {
         String[] tab = data.split("/");
 
         for(int i = 0; i<3; i++){
-            if(tab[i].equals("NIL")){
+            if(tab[i].equals("NIL") || (Integer.parseInt(tab[i])<0 || Integer.parseInt(tab[i])>8)){
                 tab[i] = "10";
             }        }
         int[] indexes = {Integer.parseInt(tab[0]),Integer.parseInt(tab[1]),Integer.parseInt(tab[2])};

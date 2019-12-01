@@ -91,7 +91,14 @@ public class MainActivity extends AppCompatActivity {
                     hourOfDay = "0" + hourOfDay;
                 }
                 String day = Integer.toString(rightNow.get(Calendar.DAY_OF_MONTH));
+                if(day.length() == 1){
+                    day = "0" + day;
+                }
                 String month = Integer.toString(rightNow.get(Calendar.MONTH)+1);
+                if(month.length() == 1){
+                    month = "0" + month;
+                }
+
                 String year = Integer.toString(rightNow.get(Calendar.YEAR));
                 String date = year + "/" + month + "/" + day;
                 String hour =  hourOfDay + ":" + minute;
