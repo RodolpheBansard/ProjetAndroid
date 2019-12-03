@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FirstScreenActivity">
+        <activity android:name=".FirstScreenActivity"
+            android:theme="@style/firstScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

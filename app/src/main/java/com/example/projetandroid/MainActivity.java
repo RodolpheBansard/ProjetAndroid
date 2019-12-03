@@ -23,17 +23,20 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+    ViewDialog viewDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*ActionBar actionBar = getSupportActionBar();
+        ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setIcon(R.mipmap.ic_logo);*/
+        actionBar.setIcon(R.mipmap.ic_logo);
+        viewDialog= new ViewDialog(this);
     }
 
     public void sendMessage(View view) {
+        viewDialog.showDialog();
         final Intent intent = new Intent(this, AffichageActivity.class);
         EditText editText1 = (EditText) findViewById(R.id.editText1);
         EditText editText2 = (EditText) findViewById(R.id.editText2);
@@ -54,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         POST(message, new SnowtamCallback() {
             @Override
             public void onSucess(String result) {
+                viewDialog.hideDialog();
                 intent.putExtra(EXTRA_MESSAGE, result);
                 startActivity(intent);
             }
