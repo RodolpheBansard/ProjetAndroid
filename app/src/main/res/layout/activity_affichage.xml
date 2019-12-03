@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AffichageActivity">
+    tools:context=".AffichageActivity"
+    android:background="#22333B">
 
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
@@ -19,14 +20,14 @@
         android:layout_height="match_parent">
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/imageButton5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
+            android:backgroundTint="#00FFFFFF"
             android:onClick="DisplayMap"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@mipmap/ic_map" />
+            app:srcCompat="@mipmap/ic_map_foreground" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
