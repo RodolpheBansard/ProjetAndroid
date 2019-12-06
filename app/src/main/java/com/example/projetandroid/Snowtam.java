@@ -41,7 +41,7 @@ public class Snowtam {
     public String toString() {
 
         try {
-            return getDecryptedSnowtam(getSnowtamDictionnary(snowtam)) + getCoordinates();
+            return getDecryptedSnowtam(getSnowtamDictionnary(snowtam)) + getCoordinates() + "#" + snowtam;
         } catch (IOException e) {
             e.printStackTrace();
             return "IO ERROR";

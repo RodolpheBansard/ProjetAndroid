@@ -1,19 +1,18 @@
 package com.example.projetandroid;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
-
-import java.util.UUID;
 
 
 /**
@@ -21,7 +20,10 @@ import java.util.UUID;
  */
 public class SnowtamFragment extends Fragment {
     View view;
+    String[] decryptedSnowtam;
+    String cryptedSnowtam;
     private TextView airportName, dateHourMeasurment;
+    public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     public SnowtamFragment() {
         // Required empty public constructor
     }
@@ -35,11 +37,34 @@ public class SnowtamFragment extends Fragment {
         airportName = view.findViewById(R.id.Airport);
         dateHourMeasurment = view.findViewById(R.id.datehour);
         String message = getArguments().getString("message");
-        String[] snowtam = message.split("\n");
-        airportName.setText(snowtam[0]);
-        dateHourMeasurment.setText(snowtam[1]);
+        decryptedSnowtam = message.split("#")[0].split("\n");
+        cryptedSnowtam =  message.split("#")[1];
+        airportName.setText(decryptedSnowtam[0]);
+        dateHourMeasurment.setText(decryptedSnowtam[1]);
 
-        createView(snowtam);
+        createView(decryptedSnowtam);
+
+        ImageButton Mapbutton = view.findViewById(R.id.MapButton);
+        Mapbutton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), MapActivity.class);
+                String message = decryptedSnowtam[decryptedSnowtam.length-1];
+                intent.putExtra(EXTRA_MESSAGE, message);
+                startActivity(intent);
+            }
+        });
+
+        ImageButton CryptedButton = view.findViewById(R.id.CryptedButton);
+        CryptedButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), CryptedSnowtamActivity.class);
+                String message = cryptedSnowtam;
+                intent.putExtra(EXTRA_MESSAGE, message);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
@@ -65,5 +90,9 @@ public class SnowtamFragment extends Fragment {
             textView.setVisibility(View.GONE);
         }
     }
+
+
+
+
 
 }

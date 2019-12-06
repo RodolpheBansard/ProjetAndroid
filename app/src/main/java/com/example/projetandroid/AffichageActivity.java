@@ -1,6 +1,7 @@
 package com.example.projetandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
@@ -47,7 +48,6 @@ public class AffichageActivity extends AppCompatActivity{
         for (int i=0; i<data.length; i++){
             try {
                 snowtams[i] = new Snowtam(data[i],getAssets().open("airport"));
-                coordinates[i] = snowtams[i].toString().split("\n")[snowtams[i].toString().split("\n").length-1];
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -63,13 +63,9 @@ public class AffichageActivity extends AppCompatActivity{
 
     }
 
-    public void DisplayMap(View view){
-        int index = viewPager.getCurrentItem();
-        Intent intent = new Intent(this, MapActivity.class);
-        String message = coordinates[index] + "/" + coordinates[index];
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
-    }
+
+
+
 
 
 

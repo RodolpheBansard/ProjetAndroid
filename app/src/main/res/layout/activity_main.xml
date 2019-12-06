@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/maven"
         android:text="Votre Voyage"
-        android:textColor="#CCFFFFFF"
+        android:textColor="#FFFFFF"
         android:textColorHint="#CCFFFFFF"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/editText1"

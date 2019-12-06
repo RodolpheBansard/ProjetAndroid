@@ -24,7 +24,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         setContentView(R.layout.activity_map);
 
         Intent intent = getIntent();
-        message = intent.getStringExtra(AffichageActivity.EXTRA_MESSAGE);
+        message = intent.getStringExtra(SnowtamFragment.EXTRA_MESSAGE);
 
         SupportMapFragment mapFragment =(SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -39,7 +39,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         float longitude = Float.parseFloat(coordinates[1]);
 
         LatLng location = new LatLng(latitude,longitude);
-        map.addMarker(new MarkerOptions().position(location).title("Charles de Gaule"));
+        map.addMarker(new MarkerOptions().position(location));
         map.moveCamera(CameraUpdateFactory.newLatLng(location));
         map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
 
