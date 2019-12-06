@@ -67,55 +67,55 @@ public class Snowtam {
             Map.Entry pair = (Map.Entry) it.next();
             switch(pair.getKey().toString().charAt(0)){
                 case 'A':
-                    decryptedSnowtam += pair.getKey().toString() + "  " + getAirportName(pair.getValue().toString().replace(" ","")) + "\n";
+                    decryptedSnowtam += getAirportName(pair.getValue().toString().replace(" ","")) + "\n";
                     break;
                 case 'B':
-                    decryptedSnowtam += pair.getKey().toString() + "  " + getDateHour(pair.getValue().toString().replace(" ","")) + "\n";
+                    decryptedSnowtam += getDateHour(pair.getValue().toString().replace(" ","")) + "\n";
                     break;
                 case 'C':
-                    decryptedSnowtam += pair.getKey().toString() + "  " + getRunwayDesignator(pair.getValue().toString().replace(" ","")) + "\n";
+                    decryptedSnowtam += "Runway designator : " + "\n" + getRunwayDesignator(pair.getValue().toString().replace(" ","")) + "\n";
                     break;
                 case 'D':
-                    decryptedSnowtam += pair.getKey().toString() + "  " + getClearedRunwayLength(pair.getValue().toString().replace(" ","")) + "\n";
+                    decryptedSnowtam += "Cleared runway length : " + "\n" + getClearedRunwayLength(pair.getValue().toString().replace(" ","")) + "\n";
                     break;
                 case 'E':
-                    decryptedSnowtam += pair.getKey().toString() + "  " + getClearedRunwayWidth(pair.getValue().toString().replace(" ","")) + "\n";
+                    decryptedSnowtam += "Cleared runway width : " + "\n" + getClearedRunwayWidth(pair.getValue().toString().replace(" ","")) + "\n";
                     break;
                 case 'F':
-                    decryptedSnowtam += pair.getKey().toString() + "  " + getDepositsOverTotalRunwayLength(pair.getValue().toString().replace(" ","")) + "\n";
+                    decryptedSnowtam += "Deposits over total runway length : " + "\n" + getDepositsOverTotalRunwayLength(pair.getValue().toString().replace(" ","")) + "\n";
                     break;
                 case 'G':
-                    decryptedSnowtam += pair.getKey().toString() + "  " + getMeanDepthDeposit(pair.getValue().toString().replace(" ","")) + "\n";
+                    decryptedSnowtam += "Mean depth deposit for each third of total runway length  : " + "\n" + getMeanDepthDeposit(pair.getValue().toString().replace(" ","")) + "\n";
                     break;
                 case 'H':
-                    decryptedSnowtam += pair.getKey().toString() + "  " + getFrictionMeasurements(pair.getValue().toString().replace(" ","")) + "\n";
+                    decryptedSnowtam += "Friction measurements and friction measurement device : " + "\n" + getFrictionMeasurements(pair.getValue().toString().replace(" ","")) + "\n";
                     break;
                 case 'J':
-                    decryptedSnowtam += pair.getKey().toString() + "  " + getCriticalSnowbanks(pair.getValue().toString().replace(" ","")) + "\n";
+                    decryptedSnowtam += "Critical snowbanks : " + "\n" + getCriticalSnowbanks(pair.getValue().toString().replace(" ","")) + "\n";
                     break;
                 case 'K':
-                    decryptedSnowtam += pair.getKey().toString() + "  " + getRunwayLight(pair.getValue().toString().replace(" ","")) + "\n";
+                    decryptedSnowtam += "Runway lights : " + "\n" + getRunwayLight(pair.getValue().toString().replace(" ","")) + "\n";
                     break;
                 case 'L':
-                    decryptedSnowtam += pair.getKey().toString() + "  " + getFurtherClearance(pair.getValue().toString().replace(" ","")) + "\n";
+                    decryptedSnowtam += "Further clearance : " + "\n" + getFurtherClearance(pair.getValue().toString().replace(" ","")) + "\n";
                     break;
                 case 'M':
-                    decryptedSnowtam += pair.getKey().toString() + "  " + getFurtherClearanceCompletionTime(pair.getValue().toString().replace(" ","")) + "\n";
+                    decryptedSnowtam += "further clearance expected to be completed : " + "\n" + getFurtherClearanceCompletionTime(pair.getValue().toString().replace(" ","")) + "\n";
                     break;
                 case 'N':
-                    decryptedSnowtam += pair.getKey().toString() + "  " + getTaxiway(pair.getValue().toString().replace(" ","")) + "\n";
+                    decryptedSnowtam += "Taxiway : " + "\n" + getTaxiway(pair.getValue().toString().replace(" ","")) + "\n";
                     break;
                 case 'P':
-                    decryptedSnowtam += pair.getKey().toString() + "  " + getTaxiwaySnowbanks(pair.getValue().toString().replace(" ","")) + "\n";
+                    decryptedSnowtam += "Taxiway snowbanks : " + "\n" + getTaxiwaySnowbanks(pair.getValue().toString().replace(" ","")) + "\n";
                     break;
                 case 'R':
-                    decryptedSnowtam += pair.getKey().toString() + "  " + getApron(pair.getValue().toString().replace(" ","")) + "\n";
+                    decryptedSnowtam += "Apron : " + "\n" + getApron(pair.getValue().toString().replace(" ","")) + "\n";
                     break;
                 case 'S':
-                    decryptedSnowtam += pair.getKey().toString() + "  " + getNextPlannedMeasurementTime(pair.getValue().toString().replace(" ","")) + "\n";
+                    decryptedSnowtam += "Next planned observation/measurement : " + "\n" + getNextPlannedMeasurementTime(pair.getValue().toString().replace(" ","")) + "\n";
                     break;
                 case 'T':
-                    decryptedSnowtam += pair.getKey().toString() + "  " + getPlainLanguageRemarks(pair.getValue().toString().replace(" ","")) + "\n";
+                    decryptedSnowtam += "Plain-language remarks  : " + "\n" + getPlainLanguageRemarks(pair.getValue().toString().replace(" ","")) + "\n";
                     break;
                 default:
 

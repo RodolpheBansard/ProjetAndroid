@@ -4,7 +4,10 @@
     <string name="edit_destination2">Destination 2</string>
     <string name="edit_destination3">Destination 3</string>
     <string name="edit_destination4">destination 4</string>
-    <string name="barre_de_recherche">Search</string>
+    <string name="text_slogan">Do you want to build a snowtam ?</string>
+    <string name="text_Airport">Airport : </string>
+    <string name="text_DateHourOfMeasurement">Date and Hour : </string>
+    <string name="button_FirstScreen">Let\'s go</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

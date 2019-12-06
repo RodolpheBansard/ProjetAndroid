@@ -37,8 +37,6 @@ public class AffichageActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_affichage);
 
-
-
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
@@ -69,13 +67,6 @@ public class AffichageActivity extends AppCompatActivity{
         int index = viewPager.getCurrentItem();
         Intent intent = new Intent(this, MapActivity.class);
         String message = coordinates[index] + "/" + coordinates[index];
-
-
-        Log.println(Log.INFO," COORDINATE1 : ",Integer.toString(index));
-        Log.println(Log.INFO," COORDINATE2 : ",coordinates[0]);
-        Log.println(Log.INFO," COORDINATE3 : ",coordinates[1]);
-
-
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }

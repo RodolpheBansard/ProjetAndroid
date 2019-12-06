@@ -41,6 +41,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         LatLng location = new LatLng(latitude,longitude);
         map.addMarker(new MarkerOptions().position(location).title("Charles de Gaule"));
         map.moveCamera(CameraUpdateFactory.newLatLng(location));
+        map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
 
     }
 }

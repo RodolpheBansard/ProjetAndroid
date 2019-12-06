@@ -22,7 +22,7 @@ public class FragmentCollectionAdapter extends FragmentPagerAdapter {
         SnowtamFragment snowtamFragment = new SnowtamFragment();
         Bundle bundle = new Bundle();
         position = position + 1;
-        bundle.putString("message","Snowtam : " + position + "\n\n" + snowtam[position-1].toString());
+        bundle.putString("message",snowtam[position-1].toString());
         snowtamFragment.setArguments(bundle);
 
         return snowtamFragment;
