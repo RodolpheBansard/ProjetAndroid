@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Adopte un Snowtam</string>
+    <string name="Votre_voyage">Votre Voyage</string>
+    <string name="edit_destination1">Destination 1</string>
+    <string name="edit_destination2">Destination 2</string>
+    <string name="edit_destination3">Destination 3</string>
+    <string name="edit_destination4">destination 4</string>
+    <string name="text_slogan">Voulez-vous construire un snowtam?</string>
+    <string name="text_Airport">Aéroport : </string>
+    <string name="text_DateHourOfMeasurement">Date et heure : </string>
+    <string name="button_FirstScreen">Allons-y !</string>
+    <string name="text_CryptedSnowtam">Snowtam Cryptée</string>
+
+    <string name="C">Désignateur de piste : </string>
+    <string name="D">Longueur de piste dégagée : </string>
+    <string name="E">Largeur de piste dégagée : </string>
+    <string name="F">Dépôts sur la longueur totale de piste : </string>
+    <string name="G">Profondeur moyenne de dépots pour chaque tiers de la longueur totale de piste : </string>
+    <string name="H">Dispositif de mesure de friction et mesure de friction : </string>
+    <string name="J">Bancs de neige critiques : </string>
+    <string name="K">Feux de piste : </string>
+    <string name="L">Dégagement supplémentaire : </string>
+    <string name="M">Nouvelle autorisation devrait être achevée : </string>
+    <string name="N">Voie de circulation : </string>
+    <string name="P">Bancs de neige sur voie de circulation : </string>
+    <string name="R">Apron : </string>
+    <string name="S">Prochaine observation / mesure prévue : </string>
+    <string name="T">Remarques en langage clair : </string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

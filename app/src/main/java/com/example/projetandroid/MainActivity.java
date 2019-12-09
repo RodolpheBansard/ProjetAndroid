@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setIcon(R.mipmap.ic_logo);
         viewDialog= new ViewDialog(this);
+
     }
 
     public void sendMessage(View view) {

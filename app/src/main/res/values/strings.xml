@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Adopte un Snowtam</string>
+    <string name="Votre_voyage">Your Trip</string>
     <string name="edit_destination1">Destination 1</string>
     <string name="edit_destination2">Destination 2</string>
     <string name="edit_destination3">Destination 3</string>
@@ -8,7 +9,23 @@
     <string name="text_Airport">Airport : </string>
     <string name="text_DateHourOfMeasurement">Date and Hour : </string>
     <string name="button_FirstScreen">Let\'s go</string>
-    <string name="text_CryptedSnowtam">Snowtam Cryptée</string>
+    <string name="text_CryptedSnowtam">Encrypted Snowtam</string>
+
+    <string name="C">Runway designator : </string>
+    <string name="D">Cleared runway length : </string>
+    <string name="E">Cleared runway width : </string>
+    <string name="F">Deposits over total runway length : </string>
+    <string name="G">Mean depth deposit for each third of total runway length  : </string>
+    <string name="H">Friction measurements and friction measurement device : </string>
+    <string name="J">Critical snowbanks : </string>
+    <string name="K">Runway lights : </string>
+    <string name="L">Further clearance : </string>
+    <string name="M">further clearance expected to be completed : </string>
+    <string name="N">Taxiway : </string>
+    <string name="P">Taxiway snowbanks : </string>
+    <string name="R">Apron : </string>
+    <string name="S">Next planned observation/measurement : </string>
+    <string name="T">Plain-language remarks  : </string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

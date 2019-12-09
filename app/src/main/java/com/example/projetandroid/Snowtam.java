@@ -7,9 +7,11 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.Locale;
 import java.util.Map;
 
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -23,7 +25,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 
-public class Snowtam {
+public class Snowtam{
     private String snowtam;
     private static InputStream file;
     private static BufferedReader bufferedReader;
@@ -61,7 +63,6 @@ public class Snowtam {
 
     private static String getDecryptedSnowtam(Map<Character,String> snowtamDictionnary) throws IOException {
         String decryptedSnowtam = "";
-
         Iterator it = snowtamDictionnary.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry) it.next();
