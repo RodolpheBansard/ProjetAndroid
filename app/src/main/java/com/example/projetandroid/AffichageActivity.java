@@ -27,21 +27,32 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Cette class permet d'afficher les résultat de la requête POST
+ * Elle crée un ViewPager avec une view par snowtam
+ * Chaque view est un scrollview contenant la snowtam décrypté, un bouton pour afficher la snowtam cryptée et un bouton pour google map
+ * Cela permet de swiper entre chaque view
+ */
+
 public class AffichageActivity extends AppCompatActivity{
     private ViewPager viewPager;
     private FragmentCollectionAdapter adapter;
+
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     private Snowtam[] snowtams;
     private String[] coordinates;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_affichage);
 
+        // Récupère les codes OACI a traiter
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
 
+        // Décryptages des snowtams
         String[] data = message.split("#");
         snowtams = new Snowtam[data.length];
         coordinates = new String[data.length];
@@ -53,10 +64,11 @@ public class AffichageActivity extends AppCompatActivity{
             }
         }
 
-
+        // Setup et affichage du viewPager
         viewPager = findViewById(R.id.pager);
         adapter = new FragmentCollectionAdapter(getSupportFragmentManager(),snowtams);
         viewPager.setAdapter(adapter);
+
 
 
 

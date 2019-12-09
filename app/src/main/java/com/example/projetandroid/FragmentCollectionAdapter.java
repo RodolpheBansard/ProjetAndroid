@@ -6,6 +6,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+/**
+ * Cette classe permet de créer un fragment pour chaque snowtam
+ */
+
 public class FragmentCollectionAdapter extends FragmentPagerAdapter {
 
      private int nPages;
@@ -17,6 +21,11 @@ public class FragmentCollectionAdapter extends FragmentPagerAdapter {
         this.nPages = snowtam.length;
     }
 
+    /**
+     * Crée le fragment et lui associe le contenu à afficher
+     * @param position
+     * @return
+     */
     @Override
     public Fragment getItem(int position) {
         SnowtamFragment snowtamFragment = new SnowtamFragment();

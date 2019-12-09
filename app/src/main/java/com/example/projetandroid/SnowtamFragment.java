@@ -16,8 +16,9 @@ import android.widget.TextView;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ *  Fragment affichant la snowtam décrypté et rend accessible l'affichade de la vue sattelite et de la snowtam d'origine
  */
+
 public class SnowtamFragment extends Fragment {
     View view;
     String[] decryptedSnowtam;
@@ -32,7 +33,7 @@ public class SnowtamFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // Affiche le nom de l'aéroport et l'heure de la dernière mesure
         view =  inflater.inflate(R.layout.fragment_snowtam, container, false);
         airportName = view.findViewById(R.id.Airport);
         dateHourMeasurment = view.findViewById(R.id.datehour);
@@ -42,8 +43,12 @@ public class SnowtamFragment extends Fragment {
         airportName.setText(decryptedSnowtam[0]);
         dateHourMeasurment.setText(decryptedSnowtam[1]);
 
+        //Affiche les données décryptées
         createView(decryptedSnowtam);
 
+        /**
+         * Ajoute un OnClickListener sur le bouton pour lancer MapActivity
+         */
         ImageButton Mapbutton = view.findViewById(R.id.MapButton);
         Mapbutton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -55,6 +60,9 @@ public class SnowtamFragment extends Fragment {
             }
         });
 
+        /**
+         * Ajoute un OnClickListener sur le bouton pour lancer CryptedSnowtamActivity
+         */
         ImageButton CryptedButton = view.findViewById(R.id.CryptedButton);
         CryptedButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -69,6 +77,10 @@ public class SnowtamFragment extends Fragment {
         return view;
     }
 
+    /**
+     * affichage des données de la snowtam
+     * @param snowtam
+     */
     public void createView(String[] snowtam){
         ConstraintLayout myLayout = view.findViewById(R.id.myLayout);
         int index=13;
@@ -82,6 +94,7 @@ public class SnowtamFragment extends Fragment {
 
     }
 
+    // Supprime les éléments de la view non utilisés
     public void deleteNotUseChilds(int index){
         ConstraintLayout myLayout = view.findViewById(R.id.myLayout);
         int childCount = myLayout.getChildCount();

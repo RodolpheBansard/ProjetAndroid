@@ -24,6 +24,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+/**
+ * Modèle de l'application.
+ * permet de récupérer pour chaque requête la snowtam cryptée, la snowtam décrypté et les coordonnées de l'aéroport pour google map *
+ */
 
 public class Snowtam{
     private String snowtam;
@@ -32,13 +36,21 @@ public class Snowtam{
     private static String latitude;
     private static String longitude;
 
+    /**
+     * Constructeur qui prend en paramètre un code OACI et un fichier texte contenant les noms des aéroports et les coordonnées
+     * @param snowtam
+     * @param file
+     */
     public Snowtam(String snowtam, InputStream file) {
         this.snowtam = snowtam;
         this.file = file;
         this.bufferedReader = new BufferedReader(new InputStreamReader(file));
     }
 
-
+    /**
+     * ToString
+     * @return a snowtam cryptée, la snowtam décrypté et les coordonnées de l'aéroport pour google map
+     */
     @Override
     public String toString() {
 
@@ -50,17 +62,21 @@ public class Snowtam{
         }
     }
 
-    public String getLatitude() {
-        return latitude;
-    }
-    public String getLongitude() {
-        return longitude;
-    }
 
+    /**
+     * Renvoie les coordonnées de l'aéroport
+     * @return
+     */
     private String getCoordinates(){
         return latitude+"/"+longitude;
     }
 
+    /**
+     * Décrypte la snowtam
+     * @param snowtamDictionnary
+     * @return
+     * @throws IOException
+     */
     private static String getDecryptedSnowtam(Map<Character,String> snowtamDictionnary) throws IOException {
         String decryptedSnowtam = "";
         Iterator it = snowtamDictionnary.entrySet().iterator();
@@ -127,6 +143,12 @@ public class Snowtam{
 
     }
 
+    /**
+     * Crée un dictionnaire ayant pour clé une lettre et en valeur, les données correspondantes
+     * Cela permet de faciliter le traitement dans la methode getDecryptedSnowtam
+     * @param snowtam
+     * @return
+     */
     private static Map<Character,String> getSnowtamDictionnary(String snowtam){
         // Expressions régulières pour le parse de la snowtam
         String delimiterLetter = "\\)";
@@ -170,8 +192,6 @@ public class Snowtam{
         }
         return "can't find airport";
     }
-
-
 
     private static String getDateHour(String data){
         String[] months = {"January","February","March","April","May","June","July","August","September","October","November","December"};

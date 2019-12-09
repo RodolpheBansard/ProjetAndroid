@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--   Affiche la snowtam décrypté
+        La vue affiche le nom de l'aéroport, la date et l'heure de la dernière mesure
+        et permet d'afficher la vue par satellite et la snowtam d'origine
+
+         La vue contient tout les champs disponible pour afficher la snowtam
+         Les champs non utilisés sont masqués
+
+         Tout en bas se trouve le bouton pour la map et le bouton pour la snowtam d'origine
+
+         Le tout se trouve dans une scrollView-->
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"

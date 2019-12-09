@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--     Cette vue est la première à être affiché
+        Elle affiche le logo de l'application, le slogan et un bouton pour passer à la vue suivante activity_main -->
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,6 +10,7 @@
     android:layout_height="match_parent"
     tools:context=".FirstScreenActivity"
     android:background="@drawable/back">
+
 
 
     <Button

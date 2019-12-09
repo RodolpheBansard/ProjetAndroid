@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--   Cette vue permet de saisir les codes OACI désirés et de lancer la recherche avec un bouton
+       Il y a 4 champs modifiables et un bouton -->
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -30,7 +34,6 @@
         android:fontFamily="@font/maven"
         android:hint="@string/edit_destination1"
         android:inputType="textPersonName"
-        android:text="ensb"
         android:textColor="#CCFFFFFF"
         android:textColorHint="#CCFFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/editText2"
@@ -62,7 +65,6 @@
         android:ems="10"
         android:fontFamily="@font/maven"
         android:hint="@string/edit_destination3"
-        android:inputType="textPersonName"
         android:textColor="#CCFFFFFF"
         android:textColorHint="#CCFFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/editText4"
@@ -78,7 +80,6 @@
         android:ems="10"
         android:fontFamily="@font/maven"
         android:hint="@string/edit_destination4"
-        android:inputType="textPersonName"
         android:textColor="#CCFFFFFF"
         android:textColorHint="#CCFFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/button2"

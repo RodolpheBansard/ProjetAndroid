@@ -8,6 +8,14 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 
+/**
+
+    Cette class gère l'affichage de l'animation de chargement lors de la requête POST
+    La méthode showDialog affiche l'animation lorsqu'on lance la requête POST
+    La méthode hideDialog ferme l'animation lorsque la requête POST est terminée
+
+ */
+
 public class ViewDialog {
 
     Activity activity;
